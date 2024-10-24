@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraType - Advanced Typing Speed Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="top-nav">
+            <div class="logo">UltraType</div>
+            <div class="nav-settings">
+                <button id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button id="settingsBtn"><i class="fas fa-cog"></i></button>
+            </div>
+        </nav>
+
+        <main>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-label">WPM</div>
+                    <div id="wpm" class="stat-value">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Accuracy</div>
+                    <div id="accuracy" class="stat-value">0%</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Time</div>
+                    <div id="timer" class="stat-value">60s</div>
+                </div>
+            </div>
+
+            <div class="type-test-container">
+                <div id="textDisplay" class="text-display"></div>
+                <textarea id="textInput" class="text-input" placeholder="Start typing to begin..." spellcheck="false"></textarea>
+            </div>
+
+            <div class="control-panel">
+                <button id="restartBtn" class="control-btn">
+                    <i class="fas fa-redo"></i> Restart
+                </button>
+                <div class="test-options">
+                    <select id="timeSelect" class="select-style">
+                        <option value="30">30 seconds</option>
+                        <option value="60" selected>1 minute</option>
+                        <option value="120">2 minutes</option>
+                        <option value="300">5 minutes</option>
+                    </select>
+                    <select id="modeSelect" class="select-style">
+                        <option value="words">Words</option>
+                        <option value="quotes">Quotes</option>
+                        <option value="code">Code</option>
+                    </select>
+                </div>
+            </div>
+        </main>
+
+        <div id="results" class="results-modal hidden">
+            <div class="results-content">
+                <h2>Test Results</h2>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <span class="result-label">WPM</span>
+                        <span id="finalWpm" class="result-value">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Accuracy</span>
+                        <span id="finalAccuracy" class="result-value">0%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Characters</span>
+                        <span id="finalChars" class="result-value">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Errors</span>
+                        <span id="finalErrors" class="result-value">0</span>
+                    </div>
+                </div>
+                <div class="history-chart">
+                    <canvas id="wpmHistory"></canvas>
+                </div>
+                <div class="result-buttons">
+                    <button id="shareResult" class="share-btn">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                    <button id="closeResults" class="close-btn">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="settings" class="settings-modal hidden">
+            <div class="settings-content">
+                <h2>Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="fontSelect">Font</label>
+                        <select id="fontSelect" class="select-style">
+                            <option value="Roboto">Roboto</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Fira Code">Fira Code</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="soundToggle">Sound Effects</label>
+                        <input type="checkbox" id="soundToggle" class="toggle-switch">
+                    </div>
+                    <div class="setting-item">
+                        <label for="smoothCaret">Smooth Caret</label>
+                        <input type="checkbox" id="smoothCaret" class="toggle-switch" checked>
+                    </div>
+                    <div class="setting-item">
+                        <label for="fontSize">Font Size</label>
+                        <input type="range" id="fontSize" min="12" max="24" value="16">
+                    </div>
+                </div>
+                <button id="closeSettings" class="close-btn">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
